@@ -1,8 +1,7 @@
 const tintColorLight = '#2f95dc';
 const tintColorDark = '#fff';
 export const darkConflowerBlue = '#293882';
-
-
+export const darkConflowerBlueSecond = '#5f6db0';
 
 export default {
   light: {
@@ -18,5 +17,5 @@ export default {
     tint: tintColorDark,
     tabIconDefault: '#ccc',
     tabIconSelected: tintColorDark,
-  }
+  },
 };

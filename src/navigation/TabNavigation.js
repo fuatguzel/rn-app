@@ -5,6 +5,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeStack from './HomeStack';
 import HeartStack from './HeartStack';
 
+import { darkConflowerBlueSecond } from '../../constants/Colors';
+
 const Tab = createBottomTabNavigator();
 export class TabNavigation extends Component {
   render() {
@@ -16,9 +18,9 @@ export class TabNavigation extends Component {
 
             if (route.name === 'Home') {
               iconName = focused
-                ? require('../assets/icons/home-twotone.png')
-                : require('../assets/icons/home.png');
-            } else if (route.name === 'Hearth') {
+                ? require('../assets/icons/base-home.png')
+                : require('../assets/icons/home-twotone.png');
+            } else if (route.name === 'Heart') {
               iconName = focused
                 ? require('../assets/icons/favorite.png')
                 : require('../assets/icons/favorite-twotone.png');
@@ -37,9 +39,9 @@ export class TabNavigation extends Component {
         })}
         tabBarOptions={{
           activeTintColor: 'black',
-          inactiveTintColor: '#ED1D24',
+          inactiveTintColor: darkConflowerBlueSecond,
           showLabel: false,
-          activeBackgroundColor: '#ED1D24',
+          activeBackgroundColor: darkConflowerBlueSecond,
         }}
       >
         <Tab.Screen name="Home" component={HomeStack} />
