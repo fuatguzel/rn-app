@@ -4,11 +4,11 @@ import { StyleSheet, Text, View } from 'react-native';
 
 import { darkConflowerBlue } from '../constants/Colors';
 
-export default function HomeScreen() {
+export default function HeartScreen() {
   return (
     <View style={styles.container}>
       <Text style={{ color: '#fff', fontSize: 34, fontWeight: 'bold' }}>
-        Welcome to HOMESCREEN!
+        Welcome to HEART SCREEN!
       </Text>
       <StatusBar style="auto" />
     </View>

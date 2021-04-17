@@ -8,7 +8,7 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <Text style={{ color: '#fff', fontSize: 34, fontWeight: 'bold' }}>
-        Welcome to HOMESCREEN!
+        Welcome to HOME DETAIL!
       </Text>
       <StatusBar style="auto" />
     </View>
