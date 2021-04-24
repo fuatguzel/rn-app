@@ -5,7 +5,12 @@ const CustomHeader = ({ title, isHome, navigation }) => {
   return (
     <View style={{ flexDirection: 'row', height: 50 }}>
       <View
-        style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-start' }}
+        style={{
+          flex: 1,
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          alignItems: 'flex-start',
+        }}
       >
         {isHome ? (
           <TouchableOpacity onPress={() => navigation.openDrawer()}>

@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 
+import QuizBtn from '../../components/QuizBtn';
 import HomeScreen from '../../screens/HomeScreen';
 import HomeDetail from '../../screens/HomeDetail';
+import SymptomTest from '../../screens/SymptomTest';
 import { createStackNavigator } from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
-export class HomeStack extends Component {
+class HomeStack extends Component {
   render() {
     return (
       <Stack.Navigator initialRouteName="Home">
@@ -17,7 +19,12 @@ export class HomeStack extends Component {
         <Stack.Screen
           name="HomeDetail"
           component={HomeDetail}
-          options={{ headerShown: false }}
+          options={{ headerShown: true }}
+        ></Stack.Screen>
+        <Stack.Screen
+          name="SymptomTest"
+          component={SymptomTest}
+          options={{ headerShown: true }}
         ></Stack.Screen>
       </Stack.Navigator>
     );

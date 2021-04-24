@@ -9,6 +9,7 @@ const Drawer = createDrawerNavigator();
 export default function DraweNavigation() {
   return (
     <Drawer.Navigator
+      drawerType="back"
       initialRouteName="Home"
       drawerStyle={{
         backgroundColor: 'white',
