@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
-import HomeDetail from '../../screens/HomeDetail';
+import Profile from '../../screens/Profile';
 import TabNavigation from './TabNavigation';
 
 const Drawer = createDrawerNavigator();
@@ -15,7 +15,7 @@ export default function DraweNavigation() {
       }}
     >
       <Drawer.Screen name="Home" component={TabNavigation} />
-      <Drawer.Screen name="HomeDetail" component={HomeDetail} />
+      <Drawer.Screen name="Profile" component={Profile} />
     </Drawer.Navigator>
   );
 }

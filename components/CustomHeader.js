@@ -4,7 +4,9 @@ import { View, Text, Image, TouchableOpacity } from 'react-native';
 const CustomHeader = ({ title, isHome, navigation }) => {
   return (
     <View style={{ flexDirection: 'row', height: 50 }}>
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <View
+        style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-start' }}
+      >
         {isHome ? (
           <TouchableOpacity onPress={() => navigation.openDrawer()}>
             <Image
