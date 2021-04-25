@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, SafeAreaView, Text, View } from 'react-native';
+import { StyleSheet, SafeAreaView, Text, View, Image } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import CustomHeader from '../components/CustomHeader';
 import QuizBtn from '../components/QuizBtn';
@@ -24,25 +24,50 @@ export default function HomeScreen({ navigation }) {
             <Text style={styles.text}>What is Corona?</Text>
           </View>
           <View style={styles.infoContainer}>
-            <View style={[styles.infoBox, { backgroundColor: 'red' }]}>
-              <Text style={styles.infoBoxText}>Deneme</Text>
+            <View style={styles.infoBoxText}>
+              <Image
+                style={{
+                  width: 150,
+                  height: 150,
+                  resizeMode: 'contain',
+                }}
+                source={require('../src/assets/mask-pana.png')}
+              />
             </View>
             <TouchableOpacity
               onPress={() => {
                 //navigation.openDrawer();
               }}
-              style={[
-                styles.infoBox,
-                { backgroundColor: 'rgba(52, 52, 52, 0.8)' },
-              ]}
+              style={styles.infoBox}
             >
-              <Text style={styles.infoBoxText}>Deneme</Text>
+              <Image
+                style={{
+                  width: 150,
+                  height: 150,
+                  resizeMode: 'contain',
+                }}
+                source={require('../src/assets/Handwashing-amico.png')}
+              />
             </TouchableOpacity>
-            <View style={[styles.infoBox, { backgroundColor: 'red' }]}>
-              <Text>Deneme</Text>
+            <View style={styles.infoBox}>
+              <Image
+                style={{
+                  width: 150,
+                  height: 150,
+                  resizeMode: 'contain',
+                }}
+                source={require('../src/assets/Social-Distancing-amico.png')}
+              />
             </View>
-            <View style={[styles.infoBox, { backgroundColor: 'red' }]}>
-              <Text>Deneme</Text>
+            <View style={styles.infoBox}>
+              <Image
+                style={{
+                  width: 150,
+                  height: 150,
+                  resizeMode: 'contain',
+                }}
+                source={require('../src/assets/Vaccine-pana.png')}
+              />
             </View>
           </View>
           <View style={styles.marginAndRound}>
@@ -94,7 +119,7 @@ const styles = StyleSheet.create({
     borderRadius: 34,
   },
   marginAndRound: {
-    marginTop: 350,
+    marginTop: 375,
     marginVertical: 'auto',
   },
 });
