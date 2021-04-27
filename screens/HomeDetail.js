@@ -7,15 +7,9 @@ import { darkConflowerBlue } from '../constants/Colors';
 
 export default function InfoDetail() {
   return (
-    <ImageBackground
-      resizeMode="contain"
-      style={{ height: '100%', width: '100%' }}
-      source={require('../src/assets/Person-sick-in-your-household-what-to-do.jpg')}
-    >
-      <View style={styles.container}>
-        <StatusBar style="auto" />
-      </View>
-    </ImageBackground>
+    <View style={styles.container}>
+      <Text>Detail</Text>
+    </View>
   );
 }
 

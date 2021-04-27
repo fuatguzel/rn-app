@@ -70,7 +70,7 @@ export function getMetricMetaInfo(metric) {
         return (
           <View>
             <Image
-              source={require('../src/assets/Person-sick-in-your-household-what-to-do.jpg')}
+              source={require('../src/assets/exhausted-man.png')}
               name="tired"
               width={32}
               height={32}
