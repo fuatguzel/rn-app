@@ -10,7 +10,7 @@ export default function QuizBtn({ nav }) {
       style={styles.quizBtn}
       onPress={() => nav.navigate('SymptomTest')}
     >
-      <Text style={styles.text}>How are you feeling today?</Text>
+      <Text style={styles.text}>How are you feeling today ?</Text>
     </TouchableOpacity>
   );
 }

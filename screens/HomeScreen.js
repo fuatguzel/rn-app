@@ -1,7 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, SafeAreaView, Text, View, Image } from 'react-native';
+import {
+  StyleSheet,
+  SafeAreaView,
+  Text,
+  View,
+  Image,
+  Video,
+} from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { width, height } from '../constants/Layout';
 import CustomHeader from '../components/CustomHeader';
 import QuizBtn from '../components/QuizBtn';
 import HomeDetail from './HomeDetail';
@@ -21,22 +29,29 @@ export default function HomeScreen({ navigation }) {
         </View>
         <View>
           <View style={styles.spaces}>
-            <Text style={styles.text}>What is Corona?</Text>
+            <Text style={styles.text}>How to protect yourself ?</Text>
           </View>
           <View style={styles.infoContainer}>
             <View style={styles.infoBoxText}>
-              <Image
-                style={{
-                  width: 150,
-                  height: 150,
-                  resizeMode: 'contain',
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate('HomeDetail');
                 }}
-                source={require('../src/assets/mask-pana.png')}
-              />
+                style={styles.infoBox}
+              >
+                <Image
+                  style={{
+                    width: 150,
+                    height: 150,
+                    resizeMode: 'contain',
+                  }}
+                  source={require('../src/assets/mask-pana.png')}
+                />
+              </TouchableOpacity>
             </View>
             <TouchableOpacity
               onPress={() => {
-                //navigation.openDrawer();
+                navigation.navigate('HomeDetail');
               }}
               style={styles.infoBox}
             >
@@ -50,24 +65,38 @@ export default function HomeScreen({ navigation }) {
               />
             </TouchableOpacity>
             <View style={styles.infoBox}>
-              <Image
-                style={{
-                  width: 150,
-                  height: 150,
-                  resizeMode: 'contain',
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate('HomeDetail');
                 }}
-                source={require('../src/assets/Social-Distancing-amico.png')}
-              />
+                style={styles.infoBox}
+              >
+                <Image
+                  style={{
+                    width: 150,
+                    height: 150,
+                    resizeMode: 'contain',
+                  }}
+                  source={require('../src/assets/Social-Distancing-amico.png')}
+                />
+              </TouchableOpacity>
             </View>
             <View style={styles.infoBox}>
-              <Image
-                style={{
-                  width: 150,
-                  height: 150,
-                  resizeMode: 'contain',
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate('HomeDetail');
                 }}
-                source={require('../src/assets/Vaccine-pana.png')}
-              />
+                style={styles.infoBox}
+              >
+                <Image
+                  style={{
+                    width: 150,
+                    height: 150,
+                    resizeMode: 'contain',
+                  }}
+                  source={require('../src/assets/Vaccine-pana.png')}
+                />
+              </TouchableOpacity>
             </View>
           </View>
           <View style={styles.marginAndRound}>
@@ -84,6 +113,16 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 34,
   },
+  videoContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: '#ecf0f1',
+  },
+  video: {
+    alignSelf: 'center',
+    width: 320,
+    height: 200,
+  },
   headerContainer: {
     flex: 1,
     borderRadius: 34,
@@ -97,7 +136,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontWeight: 'bold',
-    fontSize: 24,
+    fontSize: 20,
   },
   spaces: {
     paddingTop: 23,

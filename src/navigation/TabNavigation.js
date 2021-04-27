@@ -38,7 +38,12 @@ export class TabNavigation extends Component {
               <View style={{ justifyContent: 'center' }}>
                 <Image
                   source={iconName}
-                  style={{ width: 20, height: 20, justifyContent: 'center' }}
+                  style={{
+                    width: 20,
+                    height: 20,
+                    justifyContent: 'center',
+                    color: 'red',
+                  }}
                   resizeMode="contain"
                 />
               </View>
