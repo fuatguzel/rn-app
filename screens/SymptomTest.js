@@ -5,7 +5,7 @@ import CustomHeader from '../components/CustomHeader';
 import AddSymptom from '../components/AddSymptom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import reducer from './reducers';
+import reducer from '../reducers';
 
 import { darkConflowerBlue } from '../constants/Colors';
 

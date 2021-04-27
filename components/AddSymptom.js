@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
-import { getMetricMetaInfo, timeToString } from '../utils/helpers';
+import {
+  getMetricMetaInfo,
+  timeToString,
+  getDailyReminderValue,
+} from '../utils/helpers';
 import CustomSlider from './CustomSlider';
 import DateHeader from './DateHeader';
 import SubmitBtn from './SubmitBtn';
 import { Ionicons } from '@expo/vector-icons';
 import TextButton from './TextButton';
 import { submitSymptom, removeSymptom } from '../utils/api';
+import { connect } from 'react-redux';
+import { addSymptom } from '../actions';
 
-export default class AddSymptom extends Component {
+class AddSymptom extends Component {
   state = {
     temperature: 0,
     cough: 0,
@@ -27,7 +33,11 @@ export default class AddSymptom extends Component {
     const key = timeToString();
     const entry = this.state;
 
-    // Update Redux
+    this.props.dispatch(
+      addSymptom({
+        [key]: entry,
+      }),
+    );
 
     this.setState(() => ({ run: 0, bike: 0, swim: 0, sleep: 0, eat: 0 }));
 
@@ -41,7 +51,11 @@ export default class AddSymptom extends Component {
   reset = () => {
     const key = timeToString();
 
-    // Update Redux
+    this.props.dispatch(
+      addSymptom({
+        [key]: getDailyReminderValue(),
+      }),
+    );
 
     // Route to Home
 
@@ -90,3 +104,13 @@ export default class AddSymptom extends Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  const key = timeToString();
+
+  return {
+    alreadyLogged: state[key] && typeof state[key].today === 'undefined',
+  };
+}
+
+export default connect(mapStateToProps)(AddSymptom);
