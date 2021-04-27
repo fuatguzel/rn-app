@@ -3,6 +3,10 @@ import { View, Text } from 'react-native';
 import { getMetricMetaInfo, timeToString } from '../utils/helpers';
 import CustomSlider from './CustomSlider';
 import DateHeader from './DateHeader';
+import SubmitBtn from './SubmitBtn';
+import { Ionicons } from '@expo/vector-icons';
+import TextButton from './TextButton';
+import { submitSymptom, removeSymptom } from '../utils/api';
 
 export default class AddSymptom extends Component {
   state = {
@@ -29,13 +33,33 @@ export default class AddSymptom extends Component {
 
     // Navigate to home
 
-    // Save to "DB"
+    submitSymptom({ key, entry });
 
     // Clear local notification
   };
 
+  reset = () => {
+    const key = timeToString();
+
+    // Update Redux
+
+    // Route to Home
+
+    removeSymptom(key);
+  };
+
   render() {
     const metaInfo = getMetricMetaInfo();
+
+    if (this.props.alreadyLogged) {
+      return (
+        <View>
+          <Ionicons name={'ios-happy'} size={100} />
+          <Text>You already logged your information for today.</Text>
+          <TextButton onPress={this.reset}>Reset</TextButton>
+        </View>
+      );
+    }
 
     return (
       <View>
@@ -61,6 +85,7 @@ export default class AddSymptom extends Component {
             </View>
           );
         })}
+        <SubmitBtn onPress={this.submit} />
       </View>
     );
   }
