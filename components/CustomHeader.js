@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 
 const CustomHeader = ({ title, isHome, navigation }) => {
   return (
@@ -14,19 +15,15 @@ const CustomHeader = ({ title, isHome, navigation }) => {
       >
         {isHome ? (
           <TouchableOpacity onPress={() => navigation.openDrawer()}>
-            <Image
-              style={{ width: 30, height: 30 }}
-              source={require('../src/assets/icons/menu-twotone.png')}
-              resizeMode="contain"
-            />
+            <Ionicons name="menu" size={32} color="rgba(0, 0, 0, 0.5)" />
           </TouchableOpacity>
         ) : (
           <TouchableOpacity
-            style={{ flexDirection: 'row', alignItems: 'center' }}
+            style={{ flexDirection: 'row', alignItems: 'flex-end' }}
             onPress={() => navigation.goBack()}
           >
             <Image
-              style={{ width: 25, height: 25, marginLeft: 5 }}
+              style={{ width: 20, height: 20, marginLeft: 15, marginTop: 15 }}
               source={require('../src/assets/icons/back.png')}
               resizeMode="contain"
             />

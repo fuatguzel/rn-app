@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 
-import HeartScreen from '../../screens/HeartScreen';
+import CoronaScreen from '../../screens/CoronaScreen';
 import { createStackNavigator } from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
-export class HeartStack extends Component {
+export class CoronaStack extends Component {
   render() {
     return (
       <Stack.Navigator initialRouteName="Heart">
         <Stack.Screen
           name="Heart"
-          component={HeartScreen}
+          component={CoronaScreen}
           options={{ headerShown: false }}
         ></Stack.Screen>
       </Stack.Navigator>
@@ -18,4 +18,4 @@ export class HeartStack extends Component {
   }
 }
 
-export default HeartScreen;
+export default CoronaStack;

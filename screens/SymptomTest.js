@@ -9,9 +9,12 @@ import reducer from '../reducers';
 
 import { darkConflowerBlue } from '../constants/Colors';
 
-export default function SymptomTest() {
+export default function SymptomTest({ navigation }) {
   return (
     <Provider store={createStore(reducer)}>
+      <View style={{ marginTop: 15, backgroundColor: '#fff' }}>
+        <CustomHeader title="SYMPTOMS" isHome={false} navigation={navigation} />
+      </View>
       <View style={{ flex: 1 }}>
         <AddSymptom />
       </View>

@@ -136,6 +136,8 @@ const styles = StyleSheet.create({
     padding: 50,
     alignItems: 'center',
     justifyContent: 'center',
+    borderWidth: 1,
+    borderColor: darkConflowerBlue,
   },
   infoBoxText: {
     color: '#fff',
@@ -143,6 +145,7 @@ const styles = StyleSheet.create({
   text: {
     fontWeight: 'bold',
     fontSize: 20,
+    color: 'rgba(0, 0, 0, 0.6)',
   },
   spaces: {
     paddingTop: 23,

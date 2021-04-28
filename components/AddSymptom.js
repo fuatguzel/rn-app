@@ -19,6 +19,7 @@ import TextButton from './TextButton';
 import { submitSymptom, removeSymptom } from '../utils/api';
 import { connect } from 'react-redux';
 import { addSymptom } from '../actions';
+import { darkConflowerBlue } from '../constants/Colors';
 
 class AddSymptom extends Component {
   state = {
@@ -86,6 +87,7 @@ class AddSymptom extends Component {
         <View style={styles.center}>
           <Ionicons
             name={Platform.OS === 'ios' ? 'ios-happy' : 'md-happy'}
+            style={{ color: darkConflowerBlue }}
             size={100}
           />
           <Text>You already logged your information for today.</Text>

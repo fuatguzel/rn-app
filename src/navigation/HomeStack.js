@@ -24,7 +24,7 @@ class HomeStack extends Component {
         <Stack.Screen
           name="SymptomTest"
           component={SymptomTest}
-          options={{ headerShown: true }}
+          options={{ headerShown: false }}
         ></Stack.Screen>
       </Stack.Navigator>
     );

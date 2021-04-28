@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import { Image, View } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { AntDesign, Entypo, FontAwesome5 } from '@expo/vector-icons';
 
 import HomeStack from './HomeStack';
 import HeartStack from './HeartStack';
+import CoronaStack from './CoronaStack';
 
-import { darkConflowerBlueSecond } from '../../constants/Colors';
+import {
+  darkConflowerBlueSecond,
+  darkConflowerBlue,
+} from '../../constants/Colors';
 
 const Tab = createBottomTabNavigator();
 export class TabNavigation extends Component {
@@ -17,41 +22,47 @@ export class TabNavigation extends Component {
             let iconName;
 
             if (route.name === 'Home') {
-              iconName = focused
-                ? require('../assets/icons/base-home.png')
-                : require('../assets/icons/home-twotone.png');
+              iconName = focused;
+              return (
+                <Entypo
+                  name="home"
+                  size={24}
+                  color={focused ? darkConflowerBlue : 'gray'}
+                />
+              );
             } else if (route.name === 'Heart') {
-              iconName = focused
-                ? require('../assets/icons/favorite.png')
-                : require('../assets/icons/favorite-twotone.png');
+              iconName = focused;
+              return (
+                <FontAwesome5
+                  name="heart"
+                  size={24}
+                  color={focused ? darkConflowerBlue : 'gray'}
+                />
+              );
+            } else if (route.name === 'Corona') {
+              iconName = focused;
+              return (
+                <FontAwesome5
+                  name="viruses"
+                  size={24}
+                  color={focused ? darkConflowerBlue : 'gray'}
+                />
+              );
             }
 
-            return (
-              <View style={{ justifyContent: 'center' }}>
-                <Image
-                  source={iconName}
-                  style={{
-                    width: 20,
-                    height: 20,
-                    justifyContent: 'center',
-                    color: 'red',
-                  }}
-                  resizeMode="contain"
-                />
-              </View>
-            );
+            return <View style={{ justifyContent: 'center' }}></View>;
           },
         })}
         tabBarOptions={{
-          activeTintColor: 'black',
+          activeTintColor: darkConflowerBlueSecond,
           inactiveTintColor: darkConflowerBlueSecond,
-          showLabel: false,
-          activeBackgroundColor: darkConflowerBlueSecond,
+          showLabel: true,
+          activeBackgroundColor: '#fff',
         }}
       >
         <Tab.Screen name="Home" component={HomeStack} />
         <Tab.Screen name="Heart" component={HeartStack} />
-        <Tab.Screen name="Corona" component={HomeStack} />
+        <Tab.Screen name="Corona" component={CoronaStack} />
       </Tab.Navigator>
     );
   }
