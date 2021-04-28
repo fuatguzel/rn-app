@@ -22,7 +22,13 @@ export default function HomeScreen({ navigation }) {
       <View style={styles.container}>
         <CustomHeader title="" isHome={true} navigation={navigation} />
         <View style={styles.headerContainer}>
-          <Text style={{ color: '#fff', fontSize: 34, fontWeight: 'bold' }}>
+          <Text
+            style={{
+              color: '#fff',
+              fontSize: 34,
+              fontWeight: 'bold',
+            }}
+          >
             1/14
           </Text>
           <StatusBar style="auto" />
@@ -37,7 +43,7 @@ export default function HomeScreen({ navigation }) {
                 onPress={() => {
                   navigation.navigate('HomeDetail');
                 }}
-                style={styles.infoBox}
+                style={[styles.infoBox, { backgroundColor: '#ffb48f' }]}
               >
                 <Image
                   style={{
@@ -53,7 +59,7 @@ export default function HomeScreen({ navigation }) {
               onPress={() => {
                 navigation.navigate('HomeDetail');
               }}
-              style={styles.infoBox}
+              style={[styles.infoBox, { backgroundColor: '#bee4af' }]}
             >
               <Image
                 style={{
@@ -69,7 +75,7 @@ export default function HomeScreen({ navigation }) {
                 onPress={() => {
                   navigation.navigate('HomeDetail');
                 }}
-                style={styles.infoBox}
+                style={[styles.infoBox, { backgroundColor: '#fccd04' }]}
               >
                 <Image
                   style={{
@@ -86,7 +92,7 @@ export default function HomeScreen({ navigation }) {
                 onPress={() => {
                   navigation.navigate('HomeDetail');
                 }}
-                style={styles.infoBox}
+                style={[styles.infoBox, { backgroundColor: '#c1c8e4' }]}
               >
                 <Image
                   style={{
@@ -126,7 +132,7 @@ const styles = StyleSheet.create({
   headerContainer: {
     flex: 1,
     borderRadius: 34,
-    backgroundColor: darkConflowerBlue,
+    backgroundColor: '#d1d7e0',
     padding: 50,
     alignItems: 'center',
     justifyContent: 'center',

@@ -12,7 +12,7 @@ import { darkConflowerBlue } from '../constants/Colors';
 export default function SymptomTest() {
   return (
     <Provider store={createStore(reducer)}>
-      <View>
+      <View style={{ flex: 1 }}>
         <AddSymptom />
       </View>
     </Provider>

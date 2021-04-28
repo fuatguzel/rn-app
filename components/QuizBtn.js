@@ -27,10 +27,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: 340,
     height: 50,
-    backgroundColor: darkConflowerBlue,
+    backgroundColor: '#e9ecf3',
     borderRadius: 34,
+    borderWidth: 2,
+    borderColor: darkConflowerBlue,
   },
   text: {
-    color: '#fff',
+    color: darkConflowerBlue,
   },
 });

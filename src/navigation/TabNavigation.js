@@ -24,14 +24,6 @@ export class TabNavigation extends Component {
               iconName = focused
                 ? require('../assets/icons/favorite.png')
                 : require('../assets/icons/favorite-twotone.png');
-            } else if (route.name === 'Farklı') {
-              iconName = focused
-                ? require('../assets/icons/favorite.png')
-                : require('../assets/icons/favorite-twotone.png');
-            } else if (route.name === 'Deneme') {
-              iconName = focused
-                ? require('../assets/icons/favorite.png')
-                : require('../assets/icons/favorite-twotone.png');
             }
 
             return (
@@ -59,8 +51,7 @@ export class TabNavigation extends Component {
       >
         <Tab.Screen name="Home" component={HomeStack} />
         <Tab.Screen name="Heart" component={HeartStack} />
-        <Tab.Screen name="Farklı" component={HomeStack} />
-        <Tab.Screen name="Deneme" component={HeartStack} />
+        <Tab.Screen name="Corona" component={HomeStack} />
       </Tab.Navigator>
     );
   }
