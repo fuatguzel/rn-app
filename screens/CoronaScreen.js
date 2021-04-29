@@ -9,7 +9,6 @@ import { darkConflowerBlue } from '../constants/Colors';
 export default function CoronaScreen({ navigation }) {
   return (
     <View style={styles.headerContainer}>
-      <CustomHeader title="" isHome={true} navigation={navigation} />
       <View style={styles.container}>
         <Text>Corona Datas</Text>
       </View>
