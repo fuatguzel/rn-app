@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  Platform,
+} from 'react-native';
+import { Calendar, Agenda } from 'react-native-calendars';
 import { connect } from 'react-redux';
 import { receiveSymptoms, addSymptom } from '../actions';
 import { timeToString, getDailyReminderValue } from '../utils/helpers';
 import { fetchCalendarResults } from '../utils/api';
-import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
-//import  UdaciFitnessCalendar from 'udacifitness-calendar';
+import DateHeader from './DateHeader';
 
 class History extends Component {
   componentDidMount() {
@@ -26,59 +32,75 @@ class History extends Component {
   }
 
   renderItem = ({ today, ...metrics }, formattedDate, key) => (
-    <View>
+    <View style={styles.item}>
       {today ? (
-        <Text>{JSON.stringify(today)}</Text>
+        <View>
+          <DateHeader date={formattedDate} />
+          <Text style={styles.noDataText}>{today}</Text>
+        </View>
       ) : (
-        <Text>{JSON.stringify(metrics)}</Text>
+        <TouchableOpacity onPress={() => console.log('Pressed!')}>
+          <Text>{JSON.stringify(metrics)}</Text>
+        </TouchableOpacity>
       )}
     </View>
   );
   renderEmptyDate(formattedDate) {
     return (
-      <View>
-        <Text>No Data for this day</Text>
+      <View style={styles.item}>
+        <DateHeader date={formattedDate} />
+        <Text style={styles.noDataText}>
+          You didn't log any data on this day.
+        </Text>
       </View>
     );
   }
 
   render() {
     const { entries } = this.props;
+    console.log(entries);
     return (
-      <View>
-        {/* <UdaciFitnessCalendar
-          items={entries}
-          renderItem={this.renderItem}
-          renderEmptyDate={this.renderEmptyDate}
-          /> */}
-
-        <Agenda
-          //testID={testIDs.agenda.CONTAINER}
-          items={entries}
-          //loadItemsForMonth={this.loadItems.bind(this)}
-          selected={'2017-05-16'}
-          renderItem={this.renderItem.bind(this)}
-          renderEmptyDate={this.renderEmptyDate.bind(this)}
-          //rowHasChanged={this.rowHasChanged.bind(this)}
-          // markingType={'period'}
-          // markedDates={{
-          //    '2017-05-08': {textColor: '#43515c'},
-          //    '2017-05-09': {textColor: '#43515c'},
-          //    '2017-05-14': {startingDay: true, endingDay: true, color: 'blue'},
-          //    '2017-05-21': {startingDay: true, color: 'blue'},
-          //    '2017-05-22': {endingDay: true, color: 'gray'},
-          //    '2017-05-24': {startingDay: true, color: 'gray'},
-          //    '2017-05-25': {color: 'gray'},
-          //    '2017-05-26': {endingDay: true, color: 'gray'}}}
-          // monthFormat={'yyyy'}
-          // theme={{calendarBackground: 'red', agendaKnobColor: 'green'}}
-          //renderDay={(day, item) => (<Text>{day ? day.day: 'item'}</Text>)}
-          // hideExtraDays={false}
-        />
-      </View>
+      <Calendar
+        items={entries}
+        renderItem={this.renderItem}
+        renderEmptyDate={this.renderEmptyDate}
+        rowHasChanged={this.rowHasChanged}
+      />
     );
   }
+  rowHasChanged(r1, r2) {
+    return r1.name !== r2.name;
+  }
+
+  timeToString(time) {
+    const date = new Date(time);
+    return date.toISOString().split('T')[0];
+  }
 }
+
+const styles = StyleSheet.create({
+  item: {
+    backgroundColor: '#fff',
+    borderRadius: Platform.OS === 'ios' ? 16 : 15,
+    padding: 20,
+    marginLeft: 10,
+    marginRight: 10,
+    marginTop: 17,
+    justifyContent: 'center',
+    shadowRadius: 3,
+    shadowOpacity: 0.8,
+    shadowColor: 'rgba(0, 0, 0, 0.24)',
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+  },
+  noDataText: {
+    fontSize: 20,
+    paddingTop: 20,
+    paddingBottom: 20,
+  },
+});
 
 function mapStateToProps(entries) {
   return {

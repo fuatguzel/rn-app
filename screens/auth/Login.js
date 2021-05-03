@@ -22,7 +22,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 import firebase from 'firebase';
 
-const bgImage = require('../../src/assets/woman-with-mask.png');
+const bgImage = require('../../src/assets/coronavirus-login.gif');
 
 export class Login extends Component {
   constructor(props) {
@@ -51,117 +51,113 @@ export class Login extends Component {
 
   render() {
     return (
-      <ImageBackground
-        source={bgImage}
-        style={{ height: '100%', width: '100%' }}
-      >
-        <SafeAreaView style={{ flex: 1 }}>
-          <KeyboardAvoidingView style={{ flex: 1 }}>
-            <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-              <ScrollView style={{ flex: 1, padding: 20 }}>
-                <Text
-                  style={{
-                    fontSize: 40,
-                    color: 'black',
-                    fontWeight: 'bold',
-                    marginVertical: 80,
-                  }}
-                >
-                  {'Welcome\nBack'}
-                </Text>
+      <SafeAreaView style={{ flex: 1 }}>
+        <Image source={bgImage} style={{ height: 100, width: 100 }} />
+        <KeyboardAvoidingView style={{ flex: 1 }}>
+          <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+            <ScrollView style={{ flex: 1, padding: 20 }}>
+              <Text
+                style={{
+                  fontSize: 40,
+                  color: 'black',
+                  fontWeight: 'bold',
+                  marginVertical: 80,
+                }}
+              >
+                {'Welcome\nBack'}
+              </Text>
 
-                {/* FORM */}
-                <TextInput
-                  style={{
-                    ...styles.inputStyle,
-                  }}
-                  placeholder="Email"
-                  onChangeText={(email) => this.setState({ email })}
-                />
+              {/* FORM */}
+              <TextInput
+                style={{
+                  ...styles.inputStyle,
+                }}
+                placeholder="Email"
+                onChangeText={(email) => this.setState({ email })}
+              />
 
-                <TextInput
-                  style={{
-                    ...styles.inputStyle,
-                    marginTop: 50,
-                  }}
-                  placeholder="Password"
-                  secureTextEntry
-                  onChangeText={(password) => this.setState({ password })}
-                />
+              <TextInput
+                style={{
+                  ...styles.inputStyle,
+                  marginTop: 50,
+                }}
+                placeholder="Password"
+                secureTextEntry
+                onChangeText={(password) => this.setState({ password })}
+              />
 
-                <View
-                  style={{
-                    width: '100%',
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                  }}
-                >
-                  <View style={{ flex: 1, alignItems: 'flex-end' }}>
-                    <TouchableOpacity
-                      style={{
-                        height: 70,
-                        width: 70,
-                        borderRadius: 40,
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        backgroundColor: 'rgba(0,0,0,0.7)',
-                      }}
-                    >
-                      <MaterialIcons
-                        name={'arrow-forward'}
-                        size={30}
-                        color={'white'}
-                        onPress={() => this.onSignIn()}
-                      />
-                    </TouchableOpacity>
-                  </View>
+              <View
+                style={{
+                  width: '100%',
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                }}
+              >
+                <View style={{ flex: 1, alignItems: 'flex-end' }}>
+                  <TouchableOpacity
+                    style={{
+                      height: 70,
+                      width: 70,
+                      borderRadius: 40,
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      backgroundColor: 'rgba(0,0,0,0.7)',
+                    }}
+                  >
+                    <MaterialIcons
+                      name={'arrow-forward'}
+                      size={30}
+                      color={'white'}
+                      onPress={() => this.onSignIn()}
+                    />
+                  </TouchableOpacity>
                 </View>
+              </View>
 
-                <View
-                  style={{
-                    width: '100%',
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                  }}
+              <View
+                style={{
+                  width: '100%',
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                }}
+              >
+                <TouchableOpacity
+                  style={{ ...styles.textBtn }}
+                  onPress={() => this.props.navigation.navigate('Register')}
                 >
+                  <Text
+                    style={{
+                      ...styles.textBtnLabel,
+                      color: 'white',
+                      fontWeight: 'bold',
+                    }}
+                  >
+                    Sign up
+                  </Text>
+                </TouchableOpacity>
+                <View style={{ flex: 1, alignItems: 'flex-end' }}>
                   <TouchableOpacity
                     style={{ ...styles.textBtn }}
-                    onPress={() => this.props.navigation.navigate('Register')}
+                    onPress={() =>
+                      this.props.navigation.navigate('ForgotPassword')
+                    }
                   >
                     <Text
                       style={{
                         ...styles.textBtnLabel,
-                        color: 'white',
+                        color: 'red',
                         fontWeight: 'bold',
                       }}
                     >
-                      Sign up
+                      Forgot Password
                     </Text>
                   </TouchableOpacity>
-                  <View style={{ flex: 1, alignItems: 'flex-end' }}>
-                    <TouchableOpacity
-                      style={{ ...styles.textBtn }}
-                      onPress={() =>
-                        this.props.navigation.navigate('ForgotPassword')
-                      }
-                    >
-                      <Text
-                        style={{
-                          ...styles.textBtnLabel,
-                          color: 'red',
-                          fontWeight: 'bold',
-                        }}
-                      >
-                        Forgot Password
-                      </Text>
-                    </TouchableOpacity>
-                  </View>
                 </View>
-              </ScrollView>
-            </TouchableWithoutFeedback>
-          </KeyboardAvoidingView>
-        </SafeAreaView>
-      </ImageBackground>
+              </View>
+            </ScrollView>
+          </TouchableWithoutFeedback>
+        </KeyboardAvoidingView>
+      </SafeAreaView>
     );
   }
 }
