@@ -1,4 +1,4 @@
-import { AsyncStorage } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import { getMetricMetaInfo, timeToString } from './helpers';
 
 export const CALENDAR_STORAGE_KEY = 'UdaciFitness:calendar';
@@ -12,6 +12,8 @@ function setDummyData() {
     temperature,
     cough,
     dizziness,
+    brethe,
+    vomiting,
     tired,
     appetite,
   } = getMetricMetaInfo();
@@ -28,6 +30,8 @@ function setDummyData() {
             temperature: getRandomNumber(temperature.max),
             cough: getRandomNumber(cough.max),
             dizziness: getRandomNumber(dizziness.max),
+            brethe: getRandomNumber(brethe.max),
+            vomiting: getRandomNumber(vomiting.max),
             tired: getRandomNumber(tired.max),
             appetite: getRandomNumber(appetite.max),
           }

@@ -10,6 +10,7 @@ import CoronaStack from './CoronaStack';
 import {
   darkConflowerBlueSecond,
   darkConflowerBlue,
+  color4,
 } from '../../constants/Colors';
 
 const Tab = createBottomTabNavigator();
@@ -57,7 +58,8 @@ export class TabNavigation extends Component {
           activeTintColor: darkConflowerBlueSecond,
           inactiveTintColor: darkConflowerBlueSecond,
           showLabel: true,
-          activeBackgroundColor: '#fff',
+          activeBackgroundColor: '#d1d7e0',
+          inactiveBackgroundColor: color4,
         }}
       >
         <Tab.Screen name="Home" component={HomeStack} />

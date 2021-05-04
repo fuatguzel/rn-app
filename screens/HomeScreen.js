@@ -1,12 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import {
+  ScrollView,
   StyleSheet,
   SafeAreaView,
   Text,
   View,
   Image,
-  Video,
+  Alert,
 } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { width, height } from '../constants/Layout';
@@ -14,9 +15,20 @@ import CustomHeader from '../components/CustomHeader';
 import QuizBtn from '../components/QuizBtn';
 import HomeDetail from './HomeDetail';
 
+//import Midnight from 'react-native-midnight';
+
 import { darkConflowerBlue } from '../constants/Colors';
 
 export default function HomeScreen({ navigation }) {
+  let day = 0;
+  day = new Date().getDate();
+  // React.useEffect(() => {
+  //   const listener = Midnight.addListener(() => {
+  //     Alert.alert('The day has changed');
+  //   });
+  //   return () => listener.remove();
+  // }, []);
+
   return (
     <SafeAreaView>
       <View style={styles.container}>
@@ -24,12 +36,12 @@ export default function HomeScreen({ navigation }) {
         <View style={styles.headerContainer}>
           <Text
             style={{
-              color: '#fff',
+              color: darkConflowerBlue,
               fontSize: 34,
               fontWeight: 'bold',
             }}
           >
-            1/14
+            {day < 15 ? day : 1}/14
           </Text>
           <StatusBar style="auto" />
         </View>

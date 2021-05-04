@@ -21,8 +21,15 @@ import {
 import { MaterialIcons } from '@expo/vector-icons';
 
 import firebase from 'firebase';
+import {
+  color2,
+  color3,
+  color1,
+  color4,
+  darkyellow,
+} from '../../constants/Colors';
 
-const bgImage = require('../../src/assets/coronavirus-login.gif');
+const bgImage = require('../../src/assets/WinningCoronavirus.gif');
 
 export class Login extends Component {
   constructor(props) {
@@ -52,16 +59,28 @@ export class Login extends Component {
   render() {
     return (
       <SafeAreaView style={{ flex: 1 }}>
-        <Image source={bgImage} style={{ height: 100, width: 100 }} />
         <KeyboardAvoidingView style={{ flex: 1 }}>
           <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-            <ScrollView style={{ flex: 1, padding: 20 }}>
+            <ScrollView
+              style={{ flex: 1, padding: 20, backgroundColor: '#fff' }}
+            >
+              <Image
+                source={bgImage}
+                style={{
+                  height: 250,
+                  width: 250,
+                  flex: 1,
+                  marginLeft: 'auto',
+                  marginRight: 'auto',
+                  marginTop: 25,
+                }}
+              />
               <Text
                 style={{
                   fontSize: 40,
-                  color: 'black',
+                  color: '#696773',
                   fontWeight: 'bold',
-                  marginVertical: 80,
+                  marginVertical: 20,
                 }}
               >
                 {'Welcome\nBack'}
@@ -93,7 +112,7 @@ export class Login extends Component {
                   alignItems: 'center',
                 }}
               >
-                <View style={{ flex: 1, alignItems: 'flex-end' }}>
+                <View style={{ flex: 1, alignItems: 'flex-end', marginTop: 5 }}>
                   <TouchableOpacity
                     style={{
                       height: 70,
@@ -101,7 +120,7 @@ export class Login extends Component {
                       borderRadius: 40,
                       alignItems: 'center',
                       justifyContent: 'center',
-                      backgroundColor: 'rgba(0,0,0,0.7)',
+                      backgroundColor: 'rgba(0,0,0,0.2)',
                     }}
                   >
                     <MaterialIcons
@@ -128,7 +147,7 @@ export class Login extends Component {
                   <Text
                     style={{
                       ...styles.textBtnLabel,
-                      color: 'white',
+                      color: '#d0f4de',
                       fontWeight: 'bold',
                     }}
                   >
@@ -145,7 +164,7 @@ export class Login extends Component {
                     <Text
                       style={{
                         ...styles.textBtnLabel,
-                        color: 'red',
+                        color: '#dee2ff',
                         fontWeight: 'bold',
                       }}
                     >
@@ -166,19 +185,17 @@ const styles = StyleSheet.create({
   inputStyle: {
     color: 'black',
     width: '100%',
-    marginTop: 100,
+    marginTop: 50,
     borderBottomColor: 'lightgrey',
     borderBottomWidth: 0.5,
     paddingBottom: 15,
-    height: 20,
+    height: 50,
   },
   textBtn: {
-    borderBottomColor: '#4DB7E0',
-    borderBottomWidth: 1,
     marginVertical: 50,
   },
   textBtnLabel: {
-    color: 'red',
+    color: color4,
   },
 });
 
