@@ -7,14 +7,14 @@ import { color3, darkConflowerBlue } from '../constants/Colors';
 import { showMessage, hideMessage } from 'react-native-flash-message';
 
 export default function EmergencyBtn() {
-  let ad = 'Fuat';
+  let name = 'Fuat';
   return (
     <TouchableOpacity
       style={styles.emergencyBtn}
       onPress={() => {
         showMessage({
           message: 'Emergency Call!',
-          description: `Dear ${ad}, your disease has been transmitted. We are coming. \n\n Stay Safe.`,
+          description: `Dear ${name}, your disease has been transmitted. We are coming. \n\n Stay Safe.`,
           type: 'info',
           backgroundColor: '#141414', // background color
           color: '#fff', // text color,
@@ -33,16 +33,16 @@ export default function EmergencyBtn() {
           paddingTop: 10,
         }}
       >
-        <Text style={{ fontSize: 22 }}>S .</Text>
+        <Text style={{ fontSize: 22 }}>S . </Text>
         <Image
           style={{
             width: 50,
             height: 50,
             resizeMode: 'contain',
           }}
-          source={require('../src/assets/alarm-ambulance-light-siren-emergency-256.png')}
+          source={require('../src/assets/hospital_building-256.png')}
         />
-        <Text style={{ fontSize: 22 }}>. S</Text>
+        <Text style={{ fontSize: 22 }}> . S</Text>
       </View>
     </TouchableOpacity>
   );
