@@ -10,7 +10,7 @@ export default function QuizBtn({ nav }) {
       style={styles.quizBtn}
       onPress={() => nav.navigate('SymptomTest')}
     >
-      <Text style={styles.text}>How are you feeling today ?</Text>
+      <Text style={styles.text}>How are you feeling today ? Let's Test !</Text>
     </TouchableOpacity>
   );
 }
@@ -24,15 +24,16 @@ const styles = StyleSheet.create({
   },
   quizBtn: {
     justifyContent: 'center',
-    alignItems: 'center',
     width: 340,
     height: 50,
-    backgroundColor: '#e9ecf3',
-    borderRadius: 34,
-    borderWidth: 2,
+    //backgroundColor: '#e9ecf3',
+    // borderRadius: 34,
+    // borderWidth: 2,
     borderColor: darkConflowerBlue,
   },
   text: {
+    textDecorationLine: 'underline',
     color: darkConflowerBlue,
+    fontSize: 18,
   },
 });

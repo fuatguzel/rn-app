@@ -75,7 +75,7 @@ export class Register extends Component {
                 style={{
                   fontSize: 40,
                   fontWeight: 'bold',
-                  color: '#696773',
+                  color: '#957fef',
                   marginTop: 80,
                   marginBottom: 40,
                 }}

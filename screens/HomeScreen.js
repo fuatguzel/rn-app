@@ -13,7 +13,10 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { width, height } from '../constants/Layout';
 import CustomHeader from '../components/CustomHeader';
 import QuizBtn from '../components/QuizBtn';
+import EmergencyBtn from '../components/EmergencyBtn';
 import HomeDetail from './HomeDetail';
+
+import FlashMessage from 'react-native-flash-message';
 
 //import Midnight from 'react-native-midnight';
 
@@ -30,6 +33,7 @@ export default function HomeScreen({ navigation }) {
   // }, []);
 
   return (
+    // style={{ flex: 1 }}
     <SafeAreaView>
       <View style={styles.container}>
         <CustomHeader title="" isHome={true} navigation={navigation} />
@@ -47,7 +51,7 @@ export default function HomeScreen({ navigation }) {
         </View>
         <View>
           <View style={styles.spaces}>
-            <Text style={styles.text}>How to protect yourself ?</Text>
+            <Text style={styles.text}>- How to protect yourself ?</Text>
           </View>
           <View style={styles.infoContainer}>
             <View style={styles.infoBoxText}>
@@ -118,10 +122,14 @@ export default function HomeScreen({ navigation }) {
             </View>
           </View>
           <View style={styles.marginAndRound}>
+            <EmergencyBtn />
+          </View>
+          <View style={{ marginTop: 120 }}>
             <QuizBtn nav={navigation} />
           </View>
         </View>
       </View>
+      {/* <FlashMessage position="top" /> <--- here as last component */}
     </SafeAreaView>
   );
 }
@@ -179,7 +187,8 @@ const styles = StyleSheet.create({
     borderRadius: 34,
   },
   marginAndRound: {
-    marginTop: 375,
+    marginTop: 355,
+    marginHorizontal: 'auto',
     marginVertical: 'auto',
   },
 });

@@ -78,7 +78,7 @@ export class Login extends Component {
               <Text
                 style={{
                   fontSize: 40,
-                  color: '#696773',
+                  color: '#957fef',
                   fontWeight: 'bold',
                   marginVertical: 20,
                 }}

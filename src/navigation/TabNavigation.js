@@ -58,8 +58,9 @@ export class TabNavigation extends Component {
           activeTintColor: darkConflowerBlueSecond,
           inactiveTintColor: darkConflowerBlueSecond,
           showLabel: true,
-          activeBackgroundColor: '#d1d7e0',
+          activeBackgroundColor: '#fff',
           inactiveBackgroundColor: color4,
+          //'#d1d7e0'
         }}
       >
         <Tab.Screen name="Home" component={HomeStack} />

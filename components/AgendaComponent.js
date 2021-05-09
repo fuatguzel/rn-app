@@ -14,11 +14,13 @@ import { receiveSymptoms, addSymptom } from '../actions';
 import { timeToString, getDailyReminderValue } from '../utils/helpers';
 import { fetchCalendarResults } from '../utils/api';
 import DateHeader from './DateHeader';
+import { color1, darkConflowerBlue } from '../constants/Colors';
 
 //const testIDs = require('../testIDs');
 
 class AgendaComponent extends Component {
   componentDidMount() {
+    const entries = this.props.entries || {};
     const { dispatch } = this.props;
 
     fetchCalendarResults()
@@ -59,18 +61,24 @@ class AgendaComponent extends Component {
     );
   }
   render() {
-    const { entries } = this.props;
+    const entries = this.props.entries || {};
     console.log(entries);
     return (
       <Agenda
-        //testID={testIDs.agenda.CONTAINER}
-        items={entries}
+        //testID={entries.date}
+        items={entries && entries}
         //loadItemsForMonth={this.loadItems.bind(this)}
-        //selected={'2017-05-16'}
-        renderItem={this.renderItem}
-        renderEmptyDate={this.renderEmptyDate}
-        rowHasChanged={this.rowHasChanged}
-        // markingType={'period'}
+        selected={'2021-05-02'}
+        renderItem={this.renderItem.bind(this)}
+        renderEmptyDate={this.renderEmptyDate.bind(this)}
+        rowHasChanged={this.rowHasChanged.bind(this)}
+        hideExtraDays={true}
+        theme={{
+          calendarBackground: color1,
+          agendaKnobColor: darkConflowerBlue,
+          selectedDayBackgroundColor: '#00adf5',
+        }}
+        //markingType={'period'}
         // markedDates={{
         //    '2017-05-08': {textColor: '#43515c'},
         //    '2017-05-09': {textColor: '#43515c'},
@@ -81,9 +89,8 @@ class AgendaComponent extends Component {
         //    '2017-05-25': {color: 'gray'},
         //    '2017-05-26': {endingDay: true, color: 'gray'}}}
         // monthFormat={'yyyy'}
-        // theme={{calendarBackground: 'red', agendaKnobColor: 'green'}}
+        //theme={{calendarBackground: 'red', agendaKnobColor: 'green'}}
         //renderDay={(day, item) => (<Text>{day ? day.day: 'item'}</Text>)}
-        // hideExtraDays={false}
       />
     );
   }

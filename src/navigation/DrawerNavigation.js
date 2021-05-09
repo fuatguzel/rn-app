@@ -16,7 +16,11 @@ export default function DraweNavigation() {
       }}
     >
       <Drawer.Screen name="Home" component={TabNavigation} />
-      <Drawer.Screen name="Profile" component={Profile} />
+      <Drawer.Screen
+        name="Profile"
+        component={Profile}
+        options={{ headerShown: true }}
+      />
     </Drawer.Navigator>
   );
 }

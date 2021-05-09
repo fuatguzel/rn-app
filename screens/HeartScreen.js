@@ -12,7 +12,7 @@ import { darkConflowerBlue } from '../constants/Colors';
 export default function HeartScreen({ navigation }) {
   return (
     <Provider store={createStore(reducer)}>
-      <View style={{ flex: 1, paddingTop: 10 }}>
+      <View style={{ flex: 1, paddingTop: 25 }}>
         <AgendaComponent />
       </View>
     </Provider>

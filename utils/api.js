@@ -1,12 +1,14 @@
-import AsyncStorage from '@react-native-community/async-storage';
+import { AsyncStorage } from 'react-native';
 import { CALENDAR_STORAGE_KEY, formatCalendarResults } from './_calender';
 
-export function fetchCalendarResults() {
-  return AsyncStorage.getItem(CALENDAR_STORAGE_KEY).then(formatCalendarResults);
+export async function fetchCalendarResults() {
+  return await AsyncStorage.getItem(CALENDAR_STORAGE_KEY).then(
+    formatCalendarResults,
+  );
 }
 
-export function submitSymptom({ entry, key }) {
-  return AsyncStorage.mergeItem(
+export async function submitSymptom({ entry, key }) {
+  return await AsyncStorage.mergeItem(
     CALENDAR_STORAGE_KEY,
     JSON.stringify({
       [key]: entry,
@@ -14,8 +16,8 @@ export function submitSymptom({ entry, key }) {
   );
 }
 
-export function removeSymptom(key) {
-  return AsyncStorage.getItem(CALENDAR_STORAGE_KEY).then((results) => {
+export async function removeSymptom(key) {
+  return await AsyncStorage.getItem(CALENDAR_STORAGE_KEY).then((results) => {
     const data = JSON.parse(results);
     data[key] = undefined;
     delete data[key];

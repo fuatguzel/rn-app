@@ -1,47 +1,70 @@
 import { StatusBar } from 'expo-status-bar';
 import CustomHeader from '../components/CustomHeader';
+import firebase, { auth } from 'firebase/app';
 
-import { darkConflowerBlue } from '../constants/Colors';
+import { color3, color4, darkConflowerBlue } from '../constants/Colors';
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  Button,
+} from 'react-native';
+//import SwitchWithIcons from 'react-native-switch-with-icons';
 
-export default class Profile extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <View style={styles.header}></View>
-        <Image
-          style={styles.avatar}
-          source={require('../src/assets/avatar.png')}
-        />
-        <View style={styles.body}>
-          <View style={styles.bodyContent}>
-            <Text style={styles.name}>John Doe</Text>
-            <Text style={styles.info}>UX Designer / Mobile developer</Text>
-            <Text style={styles.description}>
-              Lorem ipsum dolor sit amet, saepe sapientem eu nam. Qui ne assum
-              electram expetendis, omittam deseruisse consequuntur ius an,
-            </Text>
+export default function Profile({ navigation }) {
+  handleLogout = () => {
+    firebase.auth().signOut();
+  };
+  return (
+    <View style={styles.container}>
+      <View style={styles.header}></View>
+      <Image
+        style={styles.avatar}
+        source={require('../src/assets/avatar.png')}
+      />
+      <View style={styles.body}>
+        <View style={styles.bodyContent}>
+          <Text style={styles.name}>Name and e-mail</Text>
+          <Text style={styles.info}>Covid - Posifive</Text>
+          <Text style={styles.description}>Description</Text>
 
-            <TouchableOpacity style={styles.buttonContainer}>
-              <Text style={styles.btnText}>Opcion 1</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              //onPress={this.props.navigation.navigate('HomeScreen')}
-              style={styles.buttonContainer}
-            >
-              <Text style={styles.btnText}>Back</Text>
-            </TouchableOpacity>
-          </View>
+          {/* <SwitchWithIcons
+            style={{
+              width: 150,
+              height: 150,
+            }}
+            onValueChange={(value) =>
+              console.log(`Value has been updated to ${value}`)
+            }
+          /> */}
+
+          {/* <Button
+            icon={{
+              uri:
+                'https://avatars0.githubusercontent.com/u/17571969?v=3&s=400',
+            }}
+          >
+            Press me
+          </Button> */}
+
+          <TouchableOpacity
+            style={[styles.buttonContainer, { width: 100 }]}
+            onPress={() => handleLogout()}
+          >
+            <Text style={styles.btnText}>Sign Out</Text>
+          </TouchableOpacity>
         </View>
       </View>
-    );
-  }
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: darkConflowerBlue,
+    backgroundColor: color4,
     height: 200,
   },
   avatar: {
@@ -75,7 +98,7 @@ const styles = StyleSheet.create({
   },
   info: {
     fontSize: 16,
-    color: '#00BFFF',
+    color: 'red',
     marginTop: 10,
   },
   description: {
@@ -85,7 +108,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   buttonContainer: {
-    marginTop: 10,
+    marginTop: 25,
     height: 45,
     flexDirection: 'row',
     justifyContent: 'center',
@@ -93,7 +116,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     width: 250,
     borderRadius: 30,
-    backgroundColor: darkConflowerBlue,
+    backgroundColor: color3,
   },
   btnText: {
     color: '#fff',

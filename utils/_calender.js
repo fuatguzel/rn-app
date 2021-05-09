@@ -1,13 +1,13 @@
-import AsyncStorage from '@react-native-community/async-storage';
+import { AsyncStorage } from 'react-native';
 import { getMetricMetaInfo, timeToString } from './helpers';
 
-export const CALENDAR_STORAGE_KEY = 'UdaciFitness:calendar';
+export const CALENDAR_STORAGE_KEY = 'rn-health:calendar';
 
 function getRandomNumber(max) {
   return Math.floor(Math.random() * max) + 0;
 }
 
-function setDummyData() {
+async function setDummyData() {
   const {
     temperature,
     cough,
@@ -21,7 +21,7 @@ function setDummyData() {
   let dummyData = {};
   const timestamp = Date.now();
 
-  for (let i = -183; i < 0; i++) {
+  for (let i = -5; i < 0; i++) {
     const time = timestamp + i * 24 * 60 * 60 * 1000;
     const strTime = timeToString(time);
     dummyData[strTime] =
@@ -38,7 +38,7 @@ function setDummyData() {
         : null;
   }
 
-  AsyncStorage.setItem(CALENDAR_STORAGE_KEY, JSON.stringify(dummyData));
+  await AsyncStorage.setItem(CALENDAR_STORAGE_KEY, JSON.stringify(dummyData));
 
   return dummyData;
 }
@@ -47,7 +47,7 @@ function setMissingDates(dates) {
   const length = Object.keys(dates).length;
   const timestamp = Date.now();
 
-  for (let i = -183; i < 0; i++) {
+  for (let i = -5; i < 0; i++) {
     const time = timestamp + i * 24 * 60 * 60 * 1000;
     const strTime = timeToString(time);
 
