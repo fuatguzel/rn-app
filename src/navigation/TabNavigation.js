@@ -11,6 +11,7 @@ import {
   darkConflowerBlueSecond,
   darkConflowerBlue,
   color4,
+  color3,
 } from '../../constants/Colors';
 
 const Tab = createBottomTabNavigator();
@@ -55,7 +56,7 @@ export class TabNavigation extends Component {
           },
         })}
         tabBarOptions={{
-          activeTintColor: '#bb2124',
+          activeTintColor: '#141414',
           inactiveTintColor: '#fff',
           showLabel: true,
           activeBackgroundColor: '#fff',
