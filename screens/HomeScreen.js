@@ -129,7 +129,7 @@ export default function HomeScreen({ navigation }) {
           </View>
         </View>
       </View>
-      {/* <FlashMessage position="top" /> <--- here as last component */}
+      <FlashMessage position="top" />
     </SafeAreaView>
   );
 }

@@ -7,17 +7,22 @@ import { color3, darkConflowerBlue } from '../constants/Colors';
 import { showMessage, hideMessage } from 'react-native-flash-message';
 
 export default function EmergencyBtn() {
+  let ad = 'Fuat';
   return (
     <TouchableOpacity
       style={styles.emergencyBtn}
       onPress={() => {
         showMessage({
-          message: 'Simple message',
+          message: 'Emergency Call!',
+          description: `Dear ${ad}, your disease has been transmitted. We are coming. \n\n Stay Safe.`,
           type: 'info',
+          backgroundColor: '#141414', // background color
+          color: '#fff', // text color,
+          duration: 3000,
         });
       }}
-      title="Request Details"
-      color="#841584"
+      // title="Request Details"
+      // color="#841584"
     >
       <View
         style={{
