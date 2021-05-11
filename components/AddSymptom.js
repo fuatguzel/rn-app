@@ -30,6 +30,15 @@ class AddSymptom extends Component {
     vomiting: 0,
     tired: 0,
     appetite: 0,
+    symptoms: [
+      'temperature',
+      'cough',
+      'dizziness',
+      'brethe',
+      'vomiting',
+      'tired',
+      'appetite',
+    ],
   };
 
   slide = (metric, value) => {
@@ -108,6 +117,12 @@ class AddSymptom extends Component {
           return (
             <View key={key} style={styles.row}>
               {getIcon()}
+              <Text>
+                deneme
+                {/* {this.symptoms.forEach((element) => {
+                  element;
+                })} */}
+              </Text>
               {type === 'slider' ? (
                 <CustomSlider
                   value={value}

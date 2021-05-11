@@ -29,7 +29,7 @@ export class TabNavigation extends Component {
                 <Entypo
                   name="home"
                   size={24}
-                  color={focused ? darkConflowerBlue : 'gray'}
+                  color={focused ? '#D30505' : 'gray'}
                 />
               );
             } else if (route.name === 'Heart') {
@@ -38,7 +38,7 @@ export class TabNavigation extends Component {
                 <FontAwesome5
                   name="heart"
                   size={24}
-                  color={focused ? darkConflowerBlue : 'gray'}
+                  color={focused ? '#D30505' : 'gray'}
                 />
               );
             } else if (route.name === 'Corona') {
@@ -47,7 +47,7 @@ export class TabNavigation extends Component {
                 <FontAwesome5
                   name="viruses"
                   size={24}
-                  color={focused ? darkConflowerBlue : 'gray'}
+                  color={focused ? '#D30505' : 'gray'}
                 />
               );
             }

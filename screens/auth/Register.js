@@ -31,6 +31,8 @@ export class Register extends Component {
       email: '',
       password: '',
       name: '',
+      surName: '',
+      identificationNumber: '',
     };
 
     this.onSignUp = this.onSignUp.bind(this);
@@ -41,7 +43,7 @@ export class Register extends Component {
   };
 
   onSignUp() {
-    const { email, password, name } = this.state;
+    const { email, password, name, surName, identificationNumber } = this.state;
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
@@ -76,7 +78,7 @@ export class Register extends Component {
                   fontSize: 40,
                   fontWeight: 'bold',
                   color: '#957fef',
-                  marginTop: 80,
+                  marginTop: 10,
                   marginBottom: 40,
                 }}
               >
@@ -96,7 +98,27 @@ export class Register extends Component {
               <TextInput
                 style={{
                   ...styles.inputStyle,
-                  marginTop: 30,
+                  marginTop: 20,
+                }}
+                placeholder="Name"
+                onChangeText={(surName) => this.setState({ surName })}
+              />
+
+              <TextInput
+                style={{
+                  ...styles.inputStyle,
+                  marginTop: 20,
+                }}
+                placeholder="Identification number"
+                onChangeText={(identificationNumber) =>
+                  this.setState({ identificationNumber })
+                }
+              />
+
+              <TextInput
+                style={{
+                  ...styles.inputStyle,
+                  marginTop: 20,
                 }}
                 placeholder="E-mail"
                 onChangeText={(email) => this.setState({ email })}
@@ -105,7 +127,7 @@ export class Register extends Component {
               <TextInput
                 style={{
                   ...styles.inputStyle,
-                  marginTop: 10,
+                  marginTop: 20,
                 }}
                 placeholder="Password"
                 secureTextEntry
@@ -128,7 +150,7 @@ export class Register extends Component {
                       borderRadius: 40,
                       alignItems: 'center',
                       justifyContent: 'center',
-                      backgroundColor: 'rgba(0,0,0,0.7)',
+                      backgroundColor: 'rgba(0,0,0,0.2)',
                     }}
                     onPress={() => this.onSignUp()}
                   >

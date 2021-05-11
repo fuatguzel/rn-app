@@ -1,13 +1,23 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { ImageBackground } from 'react-native';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, RefreshControl } from 'react-native';
 
 import { base_url, daily_url } from '../constants/config';
 import CustomHeader from '../components/CustomHeader';
 import { darkConflowerBlue } from '../constants/Colors';
+import { Spinner } from 'native-base';
+import { ScrollView } from 'react-native';
+
+function wait(timeout) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, timeout);
+  });
+}
 
 export default function CoronaScreen({ navigation }) {
+  const [loading, setLoading] = React.useState(false);
+  const [refreshing, setRefreshing] = React.useState(false);
   const [totalDeaths, setTotalDeaths] = React.useState(0);
   const [totalRecovered, setTotalRecovered] = React.useState(0);
   const [dailyDeaths, setDailyDeaths] = React.useState(0);
@@ -16,6 +26,13 @@ export default function CoronaScreen({ navigation }) {
     getCases();
     getDailyCases();
   }, []);
+
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    wait(2000).then(() => {
+      setRefreshing(false);
+    });
+  }, [refreshing]);
 
   async function getDailyCases() {
     let response = await fetch(daily_url);
@@ -40,21 +57,46 @@ export default function CoronaScreen({ navigation }) {
       let result = await response.json();
       setTotalRecovered(result.recovered.value);
       setTotalDeaths(result.deaths.value);
+      setLoading(true);
     }
   }
 
   return (
     <View style={styles.headerContainer}>
-      <View style={styles.container}>
-        <Text>Total Turkey Cases</Text>
-        <Text>Total Deaths : {totalDeaths}</Text>
-        <Text>Total Recovered : {totalRecovered}</Text>
+      <View
+        style={{
+          flex: 0.25,
+          backgroundColor: 'yellow',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <Text
+          style={{
+            textAlign: 'center',
+            fontSize: 25,
+            color: '#ddd',
+          }}
+        >
+          Covid-19 Datas
+        </Text>
       </View>
-      <View style={styles.container}>
-        <Text>Daily Turkey Cases</Text>
-        <Text>Daily Deaths : {dailyDeaths}</Text>
-        <Text>Daily Recovered : {dailyRecovered}</Text>
-      </View>
+      {loading ? (
+        <ScrollView
+          refreshControl={
+            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+          }
+        >
+          <View style={styles.container}>
+            <Text>{totalDeaths}</Text>
+          </View>
+          <View style={styles.secondContainer}>
+            <Text>{totalDeaths}</Text>
+          </View>
+        </ScrollView>
+      ) : (
+        <Spinner />
+      )}
     </View>
   );
 }
@@ -68,5 +110,15 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: 'green',
   },
+  secondContainer: {
+    flex: 1,
+    paddingHorizontal: 10,
+    paddingVertical: 10,
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
+    backgroundColor: 'red',
+  },
+  header: {},
 });

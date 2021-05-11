@@ -40,7 +40,7 @@ export default function EmergencyBtn() {
             height: 50,
             resizeMode: 'contain',
           }}
-          source={require('../src/assets/hospital_building-256.png')}
+          source={require('../src/assets/plus-buyuk.png')}
         />
         <Text style={{ fontSize: 22 }}> . S</Text>
       </View>
