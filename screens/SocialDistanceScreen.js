@@ -14,7 +14,7 @@ export default function SocialDistanceScreen() {
           height: 200,
           resizeMode: 'contain',
         }}
-        source={require('../src/assets/Social-Distancing-amico.png')}
+        source={require('../src/assets/socialdistance-2.png')}
       />
       <Text>Sosyal Mesafe</Text>
       <View style={{ flexWrap: 'wrap' }}>

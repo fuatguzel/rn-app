@@ -61,12 +61,12 @@ class AgendaComponent extends Component {
     );
   }
   render() {
-    const entries = this.props.entries || {};
-    console.log(entries);
+    // const entries = this.props.entries || {};
+    // console.log(entries['2021-02-01'][1].appetite);
     return (
       <Agenda
         //testID={entries.date}
-        items={entries && entries}
+        items={this.props.entries}
         //loadItemsForMonth={this.loadItems.bind(this)}
         selected={'2021-05-02'}
         renderItem={this.renderItem.bind(this)}
@@ -186,6 +186,7 @@ const styles = StyleSheet.create({
 });
 
 function mapStateToProps(entries) {
+  console.log(entries);
   return {
     entries,
   };

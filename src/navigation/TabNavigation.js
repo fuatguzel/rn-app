@@ -14,6 +14,8 @@ import {
   color3,
 } from '../../constants/Colors';
 
+//'#D30505'
+
 const Tab = createBottomTabNavigator();
 export class TabNavigation extends Component {
   render() {
@@ -29,7 +31,7 @@ export class TabNavigation extends Component {
                 <Entypo
                   name="home"
                   size={24}
-                  color={focused ? '#D30505' : 'gray'}
+                  color={focused ? darkConflowerBlue : color4}
                 />
               );
             } else if (route.name === 'Heart') {
@@ -38,7 +40,7 @@ export class TabNavigation extends Component {
                 <FontAwesome5
                   name="heart"
                   size={24}
-                  color={focused ? '#D30505' : 'gray'}
+                  color={focused ? darkConflowerBlue : color4}
                 />
               );
             } else if (route.name === 'Corona') {
@@ -47,7 +49,7 @@ export class TabNavigation extends Component {
                 <FontAwesome5
                   name="viruses"
                   size={24}
-                  color={focused ? '#D30505' : 'gray'}
+                  color={focused ? darkConflowerBlue : color4}
                 />
               );
             }
@@ -66,7 +68,7 @@ export class TabNavigation extends Component {
         }}
       >
         <Tab.Screen name="Home" component={HomeStack} />
-        <Tab.Screen name="Heart" component={HeartStack} />
+        {/* <Tab.Screen name="Heart" component={HeartStack} /> */}
         <Tab.Screen name="Corona" component={CoronaStack} />
       </Tab.Navigator>
     );

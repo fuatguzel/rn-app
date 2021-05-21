@@ -21,17 +21,21 @@ export default function DraweNavigation() {
       drawerType="back"
       initialRouteName="Home"
       drawerStyle={{
-        backgroundColor: '#d3d5fd',
+        backgroundColor: '#f0f1f4',
         color: '#fff',
       }}
       drawerContentOptions={{
         activeTintColor: '#fff',
-        itemStyle: { marginVertical: 20, marginLeft: 50 },
+        itemStyle: { marginVertical: 20, marginLeft: 10 },
         labelStyle: {
           marginTop: 15,
-          backgroundColor: '#a287f4',
+          height: 50,
+          borderRadius: 20,
+          paddingLeft: 30,
+          paddingTop: 10,
+          backgroundColor: color4,
           fontSize: 18,
-          color: 'green',
+          color: 'white',
         },
       }}
     >
@@ -54,7 +58,7 @@ export default function DraweNavigation() {
           },
         }}
       />
-      <Drawer.Screen
+      {/* <Drawer.Screen
         name="SettingsScreen"
         component={SettingsScreen}
         options={{
@@ -63,7 +67,7 @@ export default function DraweNavigation() {
             //<Ionicons name="md-person" size={24} color="black" />;
           },
         }}
-      />
+      /> */}
     </Drawer.Navigator>
   );
 }

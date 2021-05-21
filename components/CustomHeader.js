@@ -36,7 +36,7 @@ const CustomHeader = ({ title, isHome, navigation }) => {
           flex: 1.5,
           justifyContent: 'center',
           alignItems: 'center',
-          marginTop: 15,
+          marginTop: 5,
         }}
       >
         {/* <Image

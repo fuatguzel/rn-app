@@ -14,7 +14,7 @@ export default function MaskScreen() {
           height: 200,
           resizeMode: 'contain',
         }}
-        source={require('../src/assets/mask-pana.png')}
+        source={require('../src/assets/mask-2.png')}
       />
       <Text>Maske</Text>
       <View style={{ flexWrap: 'wrap' }}>

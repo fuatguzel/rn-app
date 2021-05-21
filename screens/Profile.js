@@ -18,6 +18,9 @@ export default function Profile({ navigation }) {
   handleLogout = () => {
     firebase.auth().signOut();
   };
+
+  const user = firebase.auth().currentUser;
+
   return (
     <View style={styles.container}>
       <View style={styles.header}></View>
@@ -27,9 +30,9 @@ export default function Profile({ navigation }) {
       />
       <View style={styles.body}>
         <View style={styles.bodyContent}>
-          <Text style={styles.name}>Name and e-mail</Text>
+          <Text style={styles.name}>{false ? user.name : 'Fuat Güzel'}</Text>
           <Text style={styles.info}>Covid - Posifive</Text>
-          <Text style={styles.description}>Description</Text>
+          {/* <Text style={styles.description}>Description</Text> */}
 
           {/* <SwitchWithIcons
             style={{

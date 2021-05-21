@@ -14,7 +14,7 @@ export default function VaccineScreen() {
           height: 200,
           resizeMode: 'contain',
         }}
-        source={require('../src/assets/Vaccine-pana.png')}
+        source={require('../src/assets/vaccine-2.png')}
       />
       <Text>Aşı</Text>
       <View style={{ flexWrap: 'wrap' }}>

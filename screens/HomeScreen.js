@@ -48,7 +48,7 @@ export default function HomeScreen({ navigation }) {
                 fontWeight: 'bold',
               }}
             >
-              {day < 15 ? day : 1}/14
+              {day < 15 ? day : day - 15}/14
             </Text>
             <StatusBar style="auto" />
           </View>
@@ -127,7 +127,7 @@ export default function HomeScreen({ navigation }) {
             <View style={styles.marginAndRound}>
               <EmergencyBtn />
             </View>
-            <View style={{ marginTop: 20 }}>
+            <View style={{ marginTop: 35 }}>
               <QuizBtn nav={navigation} />
             </View>
           </View>

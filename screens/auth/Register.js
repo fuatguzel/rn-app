@@ -19,6 +19,7 @@ import {
   Button,
 } from 'react-native';
 import firebase from 'firebase';
+//import firestore from '@react-native-firebase/firestore';
 import { MaterialIcons } from '@expo/vector-icons';
 
 const bgImage = require('../../src/assets/WinningCoronavirus-2.gif');
@@ -35,22 +36,29 @@ export class Register extends Component {
       identificationNumber: '',
     };
 
-    this.onSignUp = this.onSignUp.bind(this);
+    this.onSignUpAndSaveDatas = this.onSignUpAndSaveDatas.bind(this);
   }
 
   static navigationOptions = {
     headerShown: false,
   };
 
-  onSignUp() {
-    const { email, password, name, surName, identificationNumber } = this.state;
+  onSignUpAndSaveDatas() {
+    //let uid = firebase.auth().currentUser().uid;
+    //const { email, password, name, surName, identificationNumber } = this.state;
     firebase
       .auth()
-      .createUserWithEmailAndPassword(email, password)
+      .createUserWithEmailAndPassword(this.state.email, this.state.password)
       .then(
-        () => {},
+        (data) => {},
+        firebase.firestore().collection('Users').doc('ABC').set({
+          name: this.state.name,
+          surname: this.state.surName,
+          identificationNumber: this.state.identificationNumber,
+          email: this.state.email,
+        }),
         (error) => {
-          Alert.alert(error.message);
+          console.error(error.message);
         },
       );
   }
@@ -100,7 +108,7 @@ export class Register extends Component {
                   ...styles.inputStyle,
                   marginTop: 20,
                 }}
-                placeholder="Name"
+                placeholder="Surname"
                 onChangeText={(surName) => this.setState({ surName })}
               />
 
@@ -109,6 +117,7 @@ export class Register extends Component {
                   ...styles.inputStyle,
                   marginTop: 20,
                 }}
+                keyboardType="numeric"
                 placeholder="Identification number"
                 onChangeText={(identificationNumber) =>
                   this.setState({ identificationNumber })
@@ -152,7 +161,7 @@ export class Register extends Component {
                       justifyContent: 'center',
                       backgroundColor: 'rgba(0,0,0,0.2)',
                     }}
-                    onPress={() => this.onSignUp()}
+                    onPress={() => this.onSignUpAndSaveDatas()}
                   >
                     <MaterialIcons
                       name={'arrow-forward'}

@@ -2,9 +2,32 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import CustomHeader from '../components/CustomHeader';
-import { color3, darkConflowerBlue } from '../constants/Colors';
+import { color3, color4, darkConflowerBlue } from '../constants/Colors';
 
 import { showMessage, hideMessage } from 'react-native-flash-message';
+
+const postUserInfos = () => {
+  fetch('http://192.168.0.105:3000/events', {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      id: '15',
+      identificationNumber: '1111',
+      name: 'fuat',
+      surname: 'guzel',
+      location: 'kocaeli/körfez',
+    }),
+  })
+    .then(() => {
+      console.log('DATA SEND');
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+};
 
 export default function EmergencyBtn() {
   let name = 'Fuat';
@@ -12,13 +35,16 @@ export default function EmergencyBtn() {
     <TouchableOpacity
       style={styles.emergencyBtn}
       onPress={() => {
+        console.log('Acil cagri yapildi');
+        postUserInfos();
         showMessage({
-          message: 'Emergency Call!',
-          description: `Dear ${name}, your disease has been transmitted. We are coming. \n\n Stay Safe.`,
+          message: '\nEmergency Call!',
+          description: `Dear ${name}, your situation has been transmitted. \n\n Stay Safe.`,
           type: 'info',
-          backgroundColor: '#141414', // background color
+          marginTop: 50,
+          backgroundColor: darkConflowerBlue, // background color #141414
           color: '#fff', // text color,
-          duration: 3000,
+          duration: 4000,
         });
       }}
       // title="Request Details"

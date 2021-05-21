@@ -16,7 +16,7 @@ export default function HandWashingScreen() {
           height: 200,
           resizeMode: 'contain',
         }}
-        source={require('../src/assets/Handwashing-amico.png')}
+        source={require('../src/assets/handwashing-2.png')}
       />
       <Text>El Yıkama</Text>
       <View style={{ flexWrap: 'wrap' }}>

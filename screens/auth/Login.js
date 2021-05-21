@@ -28,13 +28,14 @@ import {
   color4,
   darkyellow,
 } from '../../constants/Colors';
+import { firestore } from '../../firebase';
 
 const bgImage = require('../../src/assets/WinningCoronavirus.gif');
 
 export class Login extends Component {
   constructor(props) {
     super(props);
-
+    
     this.state = {
       email: '',
       password: '',
