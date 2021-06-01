@@ -89,6 +89,7 @@ export default function CoronaScreen({ navigation }) {
             textAlign: 'center',
             fontSize: 25,
             color: '#fff',
+            fontWeight: 'bold',
           }}
         >
           Covid-19 Datas
@@ -101,7 +102,13 @@ export default function CoronaScreen({ navigation }) {
           }
         >
           <View style={styles.container}>
-            <Text>Country : Turkey</Text>
+            <Text
+              style={{
+                fontWeight: 'bold',
+              }}
+            >
+              Country : Turkey
+            </Text>
             <Image
               style={{
                 marginLeft: 20,

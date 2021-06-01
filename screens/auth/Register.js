@@ -51,12 +51,6 @@ export class Register extends Component {
       .createUserWithEmailAndPassword(this.state.email, this.state.password)
       .then(
         (data) => {},
-        firebase.firestore().collection('Users').doc('ABC').set({
-          name: this.state.name,
-          surname: this.state.surName,
-          identificationNumber: this.state.identificationNumber,
-          email: this.state.email,
-        }),
         (error) => {
           console.error(error.message);
         },

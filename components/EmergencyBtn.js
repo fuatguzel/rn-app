@@ -15,7 +15,7 @@ const postUserInfos = () => {
     },
     body: JSON.stringify({
       id: '15',
-      identificationNumber: '1111',
+      identificationNumber: '12342352',
       name: 'fuat',
       surname: 'guzel',
       location: 'kocaeli/körfez',
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderRadius: 10,
     borderWidth: 2,
-    borderColor: '#141414',
+    borderColor: darkConflowerBlue,
   },
   text: {
     color: '#fff',
