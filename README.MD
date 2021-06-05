@@ -17,8 +17,8 @@ $ expo start
 
 <div style="text-align:center; min-height:200px;width:100%;">
     <h3>Register & Login</h3>
-    <img src="https://user-images.githubusercontent.com/78875750/120903335-4dcd9700-c64e-11eb-9fb4-075fee96bd6a.jpg" width="48">
-    <img src="https://user-images.githubusercontent.com/78875750/120903350-62119400-c64e-11eb-8f3e-8c5d0eca5b76.jpg" width="48">
+    <img src="https://user-images.githubusercontent.com/78875750/120903335-4dcd9700-c64e-11eb-9fb4-075fee96bd6a.jpg" width="250">
+    <img src="https://user-images.githubusercontent.com/78875750/120903350-62119400-c64e-11eb-8f3e-8c5d0eca5b76.jpg" width="250">
 </div>
 
 <div style="text-align:center; min-height:200px;width:100%;">
