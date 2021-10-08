@@ -1,6 +1,7 @@
 ## Stay Home App
 
-Karantina süresinde yardımcı mobil uygulama
+- Home quarantine app
+- Medical app for Patients
 
 ### Installation & Run
 
