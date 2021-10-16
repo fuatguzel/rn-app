@@ -41,7 +41,7 @@ $ expo start
 </div>
 
 <div style="text-align:center; min-height:200px;width:100%;">
-    <h3>Corona Screen</h3>
+    <h3>Covid Cases Screen</h3>
     <img src="https://user-images.githubusercontent.com/78875750/120903454-dea47280-c64e-11eb-86ca-007da4da7fc2.jpg" width="250">
 </div>
 
