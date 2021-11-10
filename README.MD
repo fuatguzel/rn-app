@@ -5,12 +5,19 @@
 
 ### Installation & Run
 
-```sh
-$ git clone https://github.com/fuatguzel/rn-health-app.git
-$ cd rn-health-app
-$ npm install
-$ expo start
+```console
+git clone https://github.com/fuatguzel/rn-health-app.git
 ```
+```console
+cd rn-health-app
+```
+```console
+npm install
+```
+```console
+expo start
+```
+
 
 ---
 
